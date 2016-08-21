@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>10_定义一个封装类</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+    function Person (name , age) {
+        this.name=name;
+        this.age=age;
+    }
+    Person.prototype={                                //下面会默认添加进来
+        sayBye:function(name,age){
+            document.write( this.name+" says bye to "+name +"<br>"+this.name+"  is  "+this.age +" 岁"+"<br>");
+        },
+        eat:function( foods ){
+            document.write(this.name+" eats "+foods+"<br>");
+        }
+    };
+    var p1=new Person("zm",18);
+    p1.sayBye("lyy");
+
+    Person.prototype.sayBye= function(name) {
+        document.write("hello,"+name+"<br>");             //一次扩展一个方法,会被下面覆盖   
+    };
+    
+    p1.sayBye("lyy");
+    p1.eat('lyy')
+</script>
+</body>
+</html>

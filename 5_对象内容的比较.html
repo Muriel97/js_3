@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>5_对象内容的比较</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+        
+    Object.prototype.equals = function(obj) {
+        //错误案例：
+        // for (var key in obj) {
+        //     if ( obj[key] instanceof Function ){
+        //         obj[key]();
+        //     }else{
+        //     	return false;
+        //     }
+        // }
+        // document.write("<hr>");
+
+        var result=false;
+        if(!obj){
+        	return result;
+        }
+        //循环obj中所有成员
+        for (var key in obj) {
+            	if( !obj[key]  ||  !this[key]  ||  obj[key]!=this[key] ){
+            		return result;
+            	}
+        };   
+        for (var key in this) {
+            	if( !obj[key]  ||  !this[key]  ||  obj[key]!=this[key] ){
+            		return result;
+            	}
+        }
+        result=true;
+        return result;
+    }
+
+
+
+    var a={name:'zm',age:18,gender:1};
+    var b={name:'zm',age:18};
+
+    document.write( (a==b)+"<br>" );
+
+    document.write( a.equals(b)+"<br>"  );
+
+
+    Object.prototype.clone=function(){
+        var newobj={};
+        for (var key in this) {
+        	newobj[key]=this[key];
+        }
+    	return newobj
+    }
+    var newA=a.clone();
+    newA.name='tom';
+    document.write(a.name+"<br>"+a.gender+"<br>");
+    document.write(newA.name+"<br>"+newA.gender+"<br>")
+</script>
+</body>
+</html>

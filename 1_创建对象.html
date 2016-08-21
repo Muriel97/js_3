@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>1_创建对象</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+    //1.利用内置对象来创建对象
+    var arr=new Array();
+    var a=new Date();
+    var b=new Object();
+
+    //2.利用对象字面量
+    var c={};
+    var d={name:'am',age:18};
+
+                   //全部为object类型
+    document.write(typeof(arr)+"\t"+typeof(a)+"\t"+typeof(b)+"\t"+typeof(c)+"\t"+typeof(d)+"\t"+"<br>")
+    document.write(arr+"\t"+a+"\t"+b+"\t"+c+"\t"+d)                      
+    //Wed May 18 2016 17:01:31 GMT+0800 (CST) [object Object] [object Object] [object Object] 
+</script>
+</body>
+</html>

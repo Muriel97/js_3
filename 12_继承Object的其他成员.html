@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>12_继承Object的其他成员</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+    var num=new Number( 123 );     //将123包装成一个Number对象
+    document.write( num.toString()+"  "+(typeof num) +"<br>");   //123   object
+    document.write( (typeof 123) +"<br>");        //number
+
+
+
+    document.write( num.valueOf() + "<br>" );        //  valueOf():取出一个对象中包装的值
+
+    //hasOwnProperty()判定一个对象中是否有某个属性
+    var car={
+        color:'red',
+        run:function(){
+            alert('run'); 
+        }
+    }               // true  存在color属性                 false  不存在logo属性
+    document.write( car.hasOwnProperty('color') + "<br>"+ car.hasOwnProperty('logo') );  
+</script>
+</body>
+</html>

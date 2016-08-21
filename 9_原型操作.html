@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>9_原型操作</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+    //前面我们用过prototype扩展Array，Object(内置函数)中的equals，clone，这样他们下面的对象有这些功能
+    function Person (name , age) {
+        this.name=name;
+        this.age=age;
+    }
+    Person.prototype.sayHelllo= function(name) {
+        document.write("hello,"+name+"<br>");             //一次扩展一个方法,会被下面覆盖   
+    };
+    //还可以一次扩展多个方法，会覆盖上面的👆
+    Person.prototype={
+        sayBye:function(name,age){
+            document.write( this.name+" says bye to "+name +"<br>"+this.name+"  is  "+this.age +" 岁"+"<br>");
+        },
+        eat:function( foods ){
+            document.write(this.name+" eats "+foods+"<br>");
+        }
+    };
+    var p1=new Person("zm",18);
+    p1.sayBye("lyy");
+    var p2=new Person("zm");
+    p2.eat("lyy");
+
+    //用原型来扩展属性
+    Person.prototype.grade='一年级';   //这样做，这个类创建的所有对象都会有相同值的属性
+    document.write(p1.name+"  "+p1.grade+"<br>");
+    var p3=new Person("lyy");
+    document.write(p3.name+"  "+p1.grade+"<br>");
+
+</script>
+</body>
+</html>
